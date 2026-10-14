@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electroreck Club | Event Showcase</title>
+  <meta name="description" content="Upcoming events from Electroreck Club - Technical, Cultural and Sports." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo">
+        <img src="/images/LOGO new.jpg.jpeg" alt="Electroreck Club logo" class="logo-img" />
+        <span class="logo-text">
+        <span class="logo-name">Electroreck<span> Club</span></span>
+          <small class="logo-sub">NIT KURUKSHETRA</small>
+        </span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#footer">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-tag">Welcome to</p>
+      <h1>Electroreck</h1>
+      <p class="hero-sub">Where ideas, culture and sport come together. Join our upcoming events and be part of the community.</p>
+      <a href="#events" class="btn btn-primary">Explore Events</a>
+    </div>
+  </section>
+
+  <main>
+    <section class="events" id="events">
+      <h2 class="section-title">Upcoming Events</h2>
+
+      <div class="filters" role="tablist" aria-label="Filter events">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Technical">Technical</button>
+        <button class="filter-btn" data-filter="Cultural">Cultural</button>
+        <button class="filter-btn" data-filter="Sports">Sports</button>
+      </div>
+
+      <div class="event-grid" id="eventGrid">
+
+        <article class="card" data-category="Technical">
+          <div class="card-img">
+            <img src="images/photo1.jpg" alt="Hackathon event" loading="lazy" />
+            <span class="badge badge-tech">Technical</span>
+          </div>
+          <div class="card-body">
+            <h3>24-Hour Hackathon</h3>
+            <p class="meta">&#128197; 14 Oct 2026</p>
+            <p class="meta">&#128339; 9:00 AM - 12:00 PM</p>
+            <p class="meta">&#128205; Examination hall</p>
+            <p class="desc">Build innovative solutions in teams and win exciting prizes.</p>
+            <button class="btn btn-primary register-btn" data-event="24-Hour Hackathon">Register</button>
+          </div>
+        </article>
+
+        <article class="card" data-category="Cultural">
+          <div class="card-img">
+            <img src="images/img10.jpg" alt="Cultural night event" loading="lazy" />
+            <span class="badge badge-cultural">Cultural</span>
+          </div>
+          <div class="card-body">
+            <h3>Annual Cultural Night</h3>
+            <p class="meta">&#128197; 14 Oct 2026</p>
+            <p class="meta">&#128339; 5:30 PM - 9:30 PM</p>
+            <p class="meta">&#128205; Open Air Theatre</p>
+            <p class="desc">An evening of music, dance and drama performed by our talented members.</p>
+            <button class="btn btn-primary register-btn" data-event="Annual Cultural Night">Register</button>
+          </div>
+        </article>
+
+        <article class="card" data-category="Sports">
+          <div class="card-img">
+            <img src="images/photo9.jpg" alt="Sports tournament" loading="lazy" />
+            <span class="badge badge-sports">Sports</span>
+          </div>
+          <div class="card-body">
+            <h3>Sports</h3>
+            <p class="meta">&#128197; 14 Oct 2026</p>
+            <p class="meta">&#128339; 8:00 AM - 4:00 PM</p>
+            <p class="meta">&#128205; Sports Complex Ground</p>
+            <p class="desc">Form your team and compete.</p>
+            <button class="btn btn-primary register-btn" data-event="Sports">Register</button>
+          </div>
+        </article>
+
+      </div>
+      <p class="no-results" id="noResults" hidden>No events found in this category.</p>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <h2 id="modalTitle">Register for Event</h2>
+      <p class="modal-event" id="modalEventName"></p>
+
+      <form id="regForm" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required />
+          <small class="error" id="nameError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required />
+          <small class="error" id="phoneError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="year">Year of Study</label>
+          <select id="year" name="year" required>
+            <option value="">Select year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+          </select>
+          <small class="error" id="yearError"></small>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Submit Registration</button>
+      </form>
+
+      <div class="success" id="successBox" hidden>
+        <div class="tick">&#10004;</div>
+        <h3>Registration Successful!</h3>
+        <p id="successMsg"></p>
+        <button class="btn btn-primary" id="successClose">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" id="footer">
+    <p>&copy; 2026 Ereck Club. All rights reserved.</p>
+    <p>Contact: ereckclub@xyz.com</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
